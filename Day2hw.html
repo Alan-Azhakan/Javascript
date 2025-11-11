@@ -6,15 +6,22 @@
     <title>Document</title>
 </head>
 <body>
+    <p id="id"></p>
     <script>
-        var rice=1; price1=100;  quan1=2; 
-        var sugar=1; price2=50;   quan2=2;
-        var wheat=1; price3=75;   quan3=2;
-        document.write(" Rice Price= "+(rice*price1) +"<br>")
-        document.write(" Sugar Price= "+(sugar*price2) +"<br>")
-        document.write("  Wheat Price= "+(wheat*price3) +"<br>")
-        document.write(" Total = " +(rice*price1+sugar*price2+wheat*price3 )+"<br>")
-        document.write(" Updated Total = " +( quan*price1+ quan2*price2+ quan3*price3 )+"<br>")
+        
+        let book={
+            title:'The Alchemist',
+            auther:'paulo cohelo',
+            year: 1988,
+            getsummary(){
+                return  ("the book"+" "+this.title+" was Written by "+this.auther+" in the year "+this.year)
+        }
+    }
+        function printBookSummary(book) {
+             document.write(book.getsummary());
+        }
+        printBookSummary(book);
+
     </script>
 </body>
-</html> 
+</html>
