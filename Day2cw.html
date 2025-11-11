@@ -6,6 +6,28 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <script>
+        let contact1={
+            name:"alan",
+            phone:"0001",
+            email:"alan@gmail.com",
+            getInfo(){
+                return (" name "+this.name+" phone "+this.phone+" email "+this.email)
+            }
+        }
+        let contact2={
+            name:"elon",
+            phone:"0002",
+            email:"elon@gmail.com",
+            getInfo(){
+                return (" name "+this.name+" phone "+this.phone+" email "+this.email)
+            }
+        }
+        function printContactInfor(contact1,contact2){
+            document.write(contact1.getInfo()+"<br>");
+            document.write(contact2.getInfo());
+        }
+         printContactInfor(contact1,contact2);
+    </script>
 </body>
 </html>
