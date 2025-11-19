@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<script>
+    let purchaseCount = 0;
+
+    while (purchaseCount < 5) {
+        let code = parseInt(prompt("Enter product code (1-3):"));
+        let qty = parseInt(prompt("Enter quantity:"));
+
+       
+        if (code < 1 || code > 3) {
+            alert("Invalid code! Skipping...");
+            continue;
+        }
+
+        let price = 0;
+        let itemName = "";
+
+        
+        switch (code) {
+            case 1:
+                itemName = "Apple";
+                price = 30;
+                break;
+            case 2:
+                itemName = "Banana";
+                price = 10;
+                break;
+            case 3:
+                itemName = "Mango";
+                price = 50;
+                break;
+        }
+
+        let total = price * qty;
+ 
+        let message = "";
+        if (total > 100) {
+            message = "High purchase";
+        } else {
+            message = "Normal purchase";
+        }
+
+        alert(`${itemName} x ${qty} = ₹${total}\n${message}`);
+
+        purchaseCount++;  
+    }
+
+    alert("5 purchases completed!");
+</script>
+
+</body>
+</html>

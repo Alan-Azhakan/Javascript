@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<script>
+    let chances = 0;
+
+    while (chances < 5) {
+
+        let guess = parseInt(prompt("Enter a number between 1 and 5:"));
+
+         
+        if (guess < 1 || guess > 5 || isNaN(guess)) {
+            alert("Invalid input");
+            continue;
+        }
+
+        
+        chances++;
+
+        if (guess === 3) {
+            alert("You guessed it right!");
+            break;   
+        } else {
+            alert("Wrong guess. Try again.");
+        }
+    }
+
+    if (chances === 5) {
+        alert("Game over");
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ </head>
+ <body>
+    <script>
+       
+const friend = {
+    name: "John",
+    birthDate: "1999-07-05"
+};
+
+function getBirthdayDetails(friendObj) {
+   
+    const date = new Date(friendObj.birthDate);
+ 
+    const year = date.getFullYear();
+    const day = date.getDate();
+
+    
+    const monthName = date.toLocaleString('en-US', { month: 'long' });
+
+    
+    const today = new Date();
+    let age = today.getFullYear() - year;
+
+ 
+    const hasHadBirthdayThisYear =
+        today.getMonth() > date.getMonth() ||
+        (today.getMonth() === date.getMonth() && today.getDate() >= day);
+
+    if (!hasHadBirthdayThisYear) {
+        age--;
+    }
+
+    console.log(
+        `${friendObj.name} was born on ${day} ${monthName}, ${year} and is ${age} years old.`
+    );
+}
+
+getBirthdayDetails(friend);
+
+    </script>
+ </body>
+ </html>
