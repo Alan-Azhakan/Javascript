@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Class System</title>
+</head>
+<body>
+
+<h2>Book Information System</h2>
+
+<script>
+// Creating Book class
+class Book {
+    constructor(title, author, price) {
+        this.title = title;
+        this.author = author;
+        this.price = price;
+    }
+
+    // Getter for title
+    getTitle() {
+        return this.title;
+    }
+
+    // Getter for author
+    getAuthor() {
+        return this.author;
+    }
+
+    // Setter for price (with validation)
+    setPrice(newPrice) {
+        if (typeof newPrice === "number" && newPrice > 0) {
+            this.price = newPrice;
+            console.log("Price updated to:", newPrice);
+        } else {
+            console.log("Invalid price:", newPrice);
+        }
+    }
+}
+
+// Creating one Book object
+let myBook = new Book("The Alchemist", "Paulo Coelho", 350);
+
+// Try updating price with invalid value
+myBook.setPrice(-100);   // Invalid
+myBook.setPrice("abc");  // Invalid
+
+// Try updating price with valid value
+myBook.setPrice(499);    // Valid
+
+// Print final book details
+console.log("Final Book Details:");
+console.log("Title:", myBook.getTitle());
+console.log("Author:", myBook.getAuthor());
+console.log("Price:", myBook.price);
+</script>
+
+</body>
+</html>

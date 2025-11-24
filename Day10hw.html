@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Feedback Checker</title>
+</head>
+<body>
+
+<h2>User Feedback Processor</h2>
+
+<script>
+// JSON feedback (you can break it to test error handling)
+let jsonFeedback = `
+{
+    "name": "Riya",
+    "email": "riya@example.com",
+    "feedback": "Thank you for the great service!"
+}
+`;
+
+// Named arrow function
+const checkFeedback = () => {
+    try {
+        // Convert JSON string to JS object
+        let data = JSON.parse(jsonFeedback);
+
+        // Case-insensitive check for 'thank'
+        let hasThank = /thank/i.test(data.feedback);
+
+        if (hasThank) {
+            console.log("Positive feedback received");
+        } else {
+            console.log("Feedback noted");
+        }
+    }
+    catch (error) {
+        // If JSON is invalid
+        console.log("Error: Invalid JSON data");
+    }
+};
+
+// Run the function
+checkFeedback();
+</script>
+
+</body>
+</html>

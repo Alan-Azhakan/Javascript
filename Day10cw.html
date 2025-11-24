@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JSON Message Handler</title>
+</head>
+<body>
+
+<h2>JSON Message Processor</h2>
+
+<script>
+// JSON text (you can break it on purpose to test the error)
+let jsonText = `
+{
+    "name": "Aryan",
+    "email": "aryan@example.com",
+    "message": "Hello, this is my message!"
+}
+`;
+
+// Named arrow function
+const processMessage = () => {
+    try {
+        // Convert JSON string to JS object
+        let userObj = JSON.parse(jsonText);
+
+        // Print message
+        console.log("Message received from " + userObj.name);
+    } 
+    catch (err) {
+        // Error message if JSON is broken
+        console.log("Error: Invalid JSON data");
+        console.log(err);
+    }
+};
+
+// Run the function
+processMessage();
+</script>
+
+</body>
+</html>

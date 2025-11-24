@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User System</title>
+</head>
+<body>
+
+<h2>User Information System</h2>
+
+<script>
+// Creating the User class
+class User {
+
+    constructor(name, age, email) {
+        this.name = name;
+        this.age = age;
+        this.email = email;
+    }
+
+    // Getter for name
+    getName() {
+        return this.name;
+    }
+
+    // Getter for age
+    getAge() {
+        return this.age;
+    }
+
+    // Setter to safely update email
+    setEmail(newEmail) {
+        if (newEmail.includes("@")) {
+            this.email = newEmail;
+            console.log("Email updated to:", this.email);
+        } else {
+            console.log("Invalid email format:", newEmail);
+        }
+    }
+}
+
+// Creating one User object
+let user1 = new User("Rahul Sharma", 22, "rahul@example.com");
+
+// Try updating with invalid email
+user1.setEmail("rahulgmail.com");   // Invalid (no @)
+
+// Try updating with valid email
+user1.setEmail("rahul_new@gmail.com");  // Valid
+
+// Print user details
+console.log("Final User Details:");
+console.log("Name:", user1.getName());
+console.log("Age:", user1.getAge());
+console.log("Email:", user1.email);
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Comment Filtering System</title>
+</head>
+<body>
+
+<h2>Blog Comment Filter</h2>
+
+<p>Enter your comment below:</p>
+
+<textarea id="comment" rows="6" cols="60">
+I think this movie was BAD and 100% Stupid! But the Acting was Amazing and 3 actors were great.
+</textarea>
+<br><br>
+
+<button onclick="filterComment()">Process Comment</button>
+
+<h3>Result:</h3>
+<p id="cleaned"></p>
+<p id="numbers"></p>
+<p id="capitals"></p>
+
+<script>
+function filterComment() {
+    let text = document.getElementById("comment").value;
+
+    // 1. Replace banned words (bad, ugly, stupid)
+    let bannedRegex = /(bad|ugly|stupid)/gi;
+    let cleanedText = text.replace(bannedRegex, "***");
+
+    // 2. Count numbers
+    let numberMatches = text.match(/\d+/g);
+    let numberCount = numberMatches ? numberMatches.length : 0;
+
+    // 3. Count capitalized words
+    let capitalMatches = text.match(/\b[A-Z][a-zA-Z]*/g);
+    let capitalCount = capitalMatches ? capitalMatches.length : 0;
+
+    // 4. Display results
+    document.getElementById("cleaned").innerHTML = 
+        "Cleaned Comment: " + cleanedText;
+
+    document.getElementById("numbers").innerHTML = 
+        "Numbers Found: " + numberCount;
+
+    document.getElementById("capitals").innerHTML = 
+        "Capitalized Words: " + capitalCount;
+}
+</script>
+
+</body>
+</html>
